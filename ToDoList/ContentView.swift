@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+struct ToDo: Identifiable {
+    let id = UUID()
+    let title: String
+}
+
+let toDoList = [
+    ToDo(title: "遊ぶ"),
+    ToDo(title: "帰る"),
+    ToDo(title: "勉強する"),
+    ToDo(title: "寝る"),
+    ToDo(title: "起きる"),
+]
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(toDoList) { toDo in
+            Text(toDo.title)
         }
-        .padding()
     }
 }
 
